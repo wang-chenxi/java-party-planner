@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Party Planner</title>
+</head>
+<body>
+<h1>Add a guest</h1>
+<form action="#" th:action="@{/guests}" th:object="${guest}" method="POST">
+  <div>
+    <label th:for="firstName">First Name</label>
+    <input type="text" th:field="*{firstName}" required/>
+  </div>
+
+  <div>
+    <label th:for="lastName">Last Name</label>
+    <input type="text" th:field="*{lastName}" required/>
+  </div>
+
+  <div>	    <input type="submit" value="Add the Guest!" />
+  </div>
+</form>
+</body>
+</html>

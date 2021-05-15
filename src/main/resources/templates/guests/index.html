@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Party Planner</title>
+</head>
+<body>
+<h1>All Guests</h1>
+<div th:each="guest:${guests}" th:object="${guest}">
+  <p th:text="*{firstName} + ' ' + *{lastName}" ></p>
+</div>
+<a href="/guests/new"> Add a new guest! </a>
+</body>
+</html>

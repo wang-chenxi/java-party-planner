@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Party Planner</title>
+</head>
+<body>
+<div th:object="${party}">
+<h1 th:text="*{name}"></h1>
+  <p th:text="*{location}"></p>
+  <p th:text="*{description}"></p>
+</div>
+<h2>Invited Guests</h2>
+<div th:each = "invitedGuest:${invitedGuests}" th:object="${invitedGuest}">
+  <p th:text="*{firstName} + ' ' + *{lastName}"></p>
+</div>
+
+<h1>Invite friends:</h1>
+<form action="#" th:action="@{'/parties/'+${party.id}}" method="POST" th:object = "${invitedGuest}">
+  <select th:field="${invitedGuest.id}">
+<option  th:each = "guest:${guests}" th:object="${guest}" th:value="*{id}" th:text="*{firstName} + ' ' + *{lastName}">
+</option>
+  </select>
+  <button type="submit"> Invite </button>
+</form>
+</body>
+</html>

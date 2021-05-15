@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Party Planner</title>
+</head>
+<body>
+<h1>All Parties</h1>
+<div th:each="party:${parties}" th:object="${party}">
+  <p th:text="*{name}" th:href="'/parties/' + *{id}"></p>
+</div>
+<a href="/parties/new"> Add a new party! </a>
+</body>
+</html>
